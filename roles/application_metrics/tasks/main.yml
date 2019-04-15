@@ -1,6 +1,6 @@
 ---
 - import_role:
-    name: middleware_monitoring
+  name: middleware_monitoring
 
 - name: Create the Grafana dashboard for application metrics
   template:
