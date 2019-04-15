@@ -3,14 +3,14 @@
     name: middleware_monitoring
 
 - name: Create the Grafana dashboard for application metrics
-    template:
-      src: "grafana-dashboard.yaml.j2"
-      dest: "/tmp/application-metrics-grafana-dashboard.yaml"
+  template:
+    src: "grafana-dashboard.yaml.j2"
+    dest: "/tmp/application-metrics-grafana-dashboard.yaml"
 
-    - name: Create the Grafana dashboard for application metrics
-      shell: "oc create -f /tmp/application-metrics-grafana-dashboard.yaml -n {{ monitoring_namespace }}"
+  - name: Create the Grafana dashboard for application metrics
+    shell: "oc create -f /tmp/application-metrics-grafana-dashboard.yaml -n {{ monitoring_namespace }}"
 
-    - name: Delete the Grafana dashboard for application metrics custom resource file
-      file:
-        path: "/tmp/application-metrics-grafana-dashboard.yaml"
-        state: absent
+  - name: Delete the Grafana dashboard for application metrics custom resource file
+    file:
+      path: "/tmp/application-metrics-grafana-dashboard.yaml"
+      state: absent
